@@ -1,14 +1,19 @@
 
+* What?
 Parses wikipedia dumps to "text" format.
 Output has one article per line, in format "title tab string encoded article content"
-String encoded means that control characters such as new line are written as \n
+String encoded means that control characters such as new line are written as \n.
 
-Usage: cat wiki.xmp | python parse_wiki_markup.py > output.txt
+* Usage: cat wiki.xmp | python parse_wiki_markup.py > output.txt
 
-Example of output:
+* How to read output in python:
+  title, content = line.split("\t")
+  content = content.decode("string-escape")
+
+* Example of output:
 Anarchism       \n\n\nAnarchism is a political philosophy which considers the state undesirable, unnecessary, and harmful, and instead promotes ...
 
-Input for this output was:
+* Input for this output was:
   <page>
     <title>Anarchism</title>
     <id>12</id>
