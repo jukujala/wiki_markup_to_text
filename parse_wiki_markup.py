@@ -1,18 +1,16 @@
 #
-#  Parses wikipedia dumps to "text" format.
-#  Output has one article per line, in format "title tab string encoded article content"
-#  String encoded means that control characters such as new line are written as \n
+#  Parses wikipedia dumps to "text-wiki" format.
+#  Output has one article per line, in format "title tab string-escaped article content"
+#  String-escaped means that control characters such as new line are written as \n
 #
-#  usage: cat wiki.xmp | python parse_wiki_markup.py > output.txt
-#
-#  note: dividing program to functions is SO outdated :)
+#  usage: cat wiki.xml | python parse_wiki_markup.py > corpus.txt
 #
 
+# note: dividing program to functions is SO outdated :)
 # note: many wiki markup constructs such as &quot; or &dash; are not parsed, but output is an average quite good
 # note: recursive [[ x | [[ y | z ]] ]] is not parsed correctly!
 # todo: fix these remaining problems!
 
-import cPickle
 import cStringIO
 import re
 import sys

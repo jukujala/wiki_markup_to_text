@@ -1,10 +1,10 @@
 
 * What?
 Parses wikipedia dumps to "text" format.
-Output has one article per line, in format "title tab string encoded article content"
-String encoded means that control characters such as new line are written as \n.
+Output has one article per line, in format "title tab string-escaped article content"
+String-escaped means that control characters such as new line are written as \n.
 
-* Usage: cat wiki.xml | python parse_wiki_markup.py > output.txt
+* Usage: cat wiki.xml | python parse_wiki_markup.py > corpus.txt
 
 * How to read output in python:
   title, content = line.split("\t")
